@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f291adb-4752-458c-a957-7ed6c87a1051" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/vikram/dsa/arrays/twodimensionalarrays/RotateMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vikram/dsa/arrays/twodimensionalarrays/PrintBoundaryClockWise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vikram/dsa/arrays/twodimensionalarrays/PrintSpiral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +41,11 @@
     "Application.PairCarryForward.executor": "Run",
     "Application.PairSum1.executor": "Run",
     "Application.PrintAllDiagonals.executor": "Run",
+    "Application.PrintBoundaryClockWise.executor": "Run",
+    "Application.PrintSpiral.executor": "Run",
     "Application.ReverseArray.executor": "Run",
     "Application.RotateArrayKTImes.executor": "Run",
+    "Application.RotateMatrix.executor": "Run",
     "Application.SumAllSubarrays.executor": "Run",
     "Application.SumInRange.executor": "Run",
     "Application.SumInRangeEven.executor": "Run",
