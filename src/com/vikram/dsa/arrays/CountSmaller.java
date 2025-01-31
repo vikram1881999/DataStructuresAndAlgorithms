@@ -3,14 +3,14 @@ package com.vikram.dsa.arrays;
 import java.util.Arrays;
 
 /**
- * Given N array elements count number of elements, having atleast 1 element greater than themselves
+ * Given N array elements count number of elements, having atleast 1 element smaller than themselves
  */
-public class CountGreater {
+public class CountSmaller {
     public static void main(String[] args) {
         int arr1[] = { -3, -2, 6, 8, 4, 8, 5 };
         int arr2[] = { 2, 3, 10, 7, 3, 2, 10, 8 };
         int arr3[] = { 2, 5, 1, 4, 8, 0, 8, 1, 3, 8};
-        CountGreater cg = new CountGreater();
+        CountSmaller cg = new CountSmaller();
 
         System.out.println( cg.countBruteForce(arr1));
         System.out.println( cg.sortOptimization(arr1));
