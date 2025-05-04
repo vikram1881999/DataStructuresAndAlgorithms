@@ -35,7 +35,7 @@ public class EvaluateDivision {
     System.out.println(division.calcEquation(equations, values, queries));
   }
 
-  public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         if( equations.isEmpty() || queries.isEmpty() ) {
             return new double[0];
         }
@@ -84,6 +84,10 @@ public class EvaluateDivision {
         return -1;
       }
 
+      if( s.equals(d) ) {
+        return 1;
+      }
+
       double max = -1;
       visited.add(s);
         for( int i = 0; i < adjMap.get(s).size(); i++ ) {
@@ -94,15 +98,15 @@ public class EvaluateDivision {
             }
             else {
               if( !visited.contains(p.node) ) {
-                dfs(p.node, d, adjMap, visited, ans * p.value);
+                max = Math.max( dfs(p.node, d, adjMap, visited, ans * p.value), max);
               }
             }
         }
 
         return max;
     }
-  
 }
+
 
 class Pair {
   String node;
