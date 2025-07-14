@@ -8,13 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MinHeightTree {
 
   public static void main( String[] args ) {
     MinHeightTree heightTree = new MinHeightTree();
-    int[][] edges = {{0,1}, {0,9}, {1,2}, {1,3}, {1,4}, {1,5}, {9, 6}, {9, 7}, {9, 8}};
-    System.out.println( heightTree.findMinHeightTrees2(10, edges));
+    int[][] edges = {{3,0}, {3,1}, {3,2}, {3,4}, {5,4}};
+    System.out.println( heightTree.findMinHeightTreesMap(6, edges));
   }
 
 
@@ -153,5 +154,50 @@ public class MinHeightTree {
         }
 
         return height;
+    }
+
+
+    public List<Integer> findMinHeightTreesMap(int n, int[][] edges) {
+        List<Integer> roots =new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        Set<Integer> adjSet[] = new HashSet[n];
+        for( int i = 0; i < edges.length; i++ ) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            if( adjSet[u] == null ) {
+                adjSet[u] = new HashSet<>();
+            }
+            if( adjSet[v] == null ) {
+                adjSet[v] = new HashSet<>();
+            }
+            adjSet[u].add(v);
+            adjSet[v].add(u);
+        }
+
+        for( int i = 0; i < n; i++ ) {
+            if( adjSet[i].size() <= 1 ) {
+                queue.add(i);
+            }
+        }
+
+        int remaining = n;
+        while( remaining > 2 ) {
+            int size = queue.size();
+            remaining -= size;
+            for( int i = 0; i < size; i++ ) {
+                int node = queue.remove();
+                for( int neighbour: adjSet[node] ) {
+                    adjSet[neighbour].remove(node);
+                    if( adjSet[neighbour].size() == 1 ) {
+                        queue.add(neighbour);
+                    }
+                }
+            } 
+        }
+
+        while( !queue.isEmpty() ) {
+            roots.add( queue.remove());
+        }
+        return roots;
     }
 }
